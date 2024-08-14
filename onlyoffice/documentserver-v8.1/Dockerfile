@@ -1,0 +1,1 @@
+FROM onlyoffice/documentserver:8.1
