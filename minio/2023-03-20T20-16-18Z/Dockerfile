@@ -1,1 +1,1 @@
-FROM  bitnami/minio:2023.3.20
+FROM  bitnami/minio:2024.7.29
