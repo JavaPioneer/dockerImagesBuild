@@ -20,8 +20,8 @@ RUN     apt update && \
         apt-get -y purge $(dpkg --get-selections | grep deinstall | sed s/deinstall//g) && \
         rm -rf /var/lib/apt/lists/*
 
-RUN     sed -i 's/localhost/"+window.location.hostname+"/g' /root/privateGPT/client/components/ConfigSideNav.js  && \
-        sed -i 's/localhost/"+window.location.hostname+"/g' /root/privateGPT/client/components/MainContainer.js
+RUN     sed -i 's/localhost/privateGPT/g' /root/privateGPT/client/components/ConfigSideNav.js  && \
+        sed -i 's/localhost/privateGPT/g' /root/privateGPT/client/components/MainContainer.js
 	
 RUN     echo "[program:privategtp-server]" > /etc/supervisor/conf.d/pgpt-server.conf && \
         echo "directory=/root/privateGPT/server" >> /etc/supervisor/conf.d/pgpt-server.conf && \
