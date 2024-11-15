@@ -1,1 +1,0 @@
-FROM  programzmh/chatnio:stable
