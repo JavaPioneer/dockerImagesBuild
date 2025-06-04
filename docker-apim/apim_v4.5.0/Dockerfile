@@ -129,7 +129,9 @@ COPY --chown=wso2carbon:wso2 docker-entrypoint.sh ${USER_HOME}/
 COPY --chown=wso2carbon:wso2  mysql-connector-java-8.0.27.jar ${WSO2_SERVER_HOME}/repository/components/lib/mysql-connector-java-8.0.27.jar
 COPY --chown=wso2carbon:wso2  postgresql-42.7.5.jar ${WSO2_SERVER_HOME}/repository/components/lib/postgresql-42.7.5.jar
 # remove unnecesary packages
-RUN apt-get purge -y netcat-traditional unzip wget
+# RUN apt-get purge -y netcat-traditional unzip wget
+RUN apt-get purge -y netcat-traditional
+
 
 # set the user and work directory
 USER ${USER_ID}
