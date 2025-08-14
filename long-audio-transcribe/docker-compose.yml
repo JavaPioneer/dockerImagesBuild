@@ -1,0 +1,20 @@
+version: '3.8'
+
+services:
+  long-audio-transcribe:
+    build: .
+    ports:
+      - "5000:5000"
+    environment:
+      - FLASK_ENV=production
+      - VLLM_WHISPER_URL=http://your-vllm-server:8000/v1/audio/transcriptions
+      - LOG_LEVEL=INFO
+    volumes:
+      - ./uploads:/app/uploads
+    restart: unless-stopped
+    networks:
+      - transcribe-network
+
+networks:
+  transcribe-network:
+    driver: bridge
